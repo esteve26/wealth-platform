@@ -2,7 +2,7 @@
 
 Document ID: PRJ-PHIL-001
 Version: 0.1
-Status: Draft
+Status: Accepted
 Owner: Product & Architecture
 Depends On:
 - PROJECT_CONSTITUTION.md
