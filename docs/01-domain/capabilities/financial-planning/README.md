@@ -1,8 +1,8 @@
 # FINANCIAL_PLANNING
 
 **Document ID:** CAP-FPLAN-001  
-**Version:** 0.2  
-**Status:** Accepted  
+**Version:** 1.0
+**Status:** Accepted
 **Owner:** Product & Architecture
 
 ---

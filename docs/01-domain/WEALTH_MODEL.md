@@ -2,7 +2,7 @@
 
 Document ID: DOM-WEALTH-001  
 Version: 1.0  
-Status: Draft  
+Status: Accepted  
 Owner: Product & Architecture
 
 ## Depends On

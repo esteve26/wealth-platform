@@ -1,7 +1,7 @@
 # TRANSACTION_MANAGEMENT
 
 **Document ID:** CAP-TXN-001  
-**Version:** 0.1  
+**Version:** 1.0  
 **Status:** Accepted  
 **Owner:** Product & Architecture
 

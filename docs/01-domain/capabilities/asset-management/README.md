@@ -1,7 +1,7 @@
 # ASSET_MANAGEMENT
 
 **Document ID:** CAP-ASSET-001
-**Version:** 0.2
+**Version:** 1.0
 **Status:** Accepted
 **Owner:** Product & Architecture
 
