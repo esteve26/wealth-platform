@@ -779,3 +779,11 @@ Advanced features such as automated rebalancing, complex simulations, multi-step
 |---------|-------------|
 | 0.1 | Initial Wealth Model definition |
 | 1.0 | Refactored as authoritative conceptual model; introduced layered architecture; made Financial Plan the primary planning entity; removed planning concepts from Portfolio; clarified ownership vs references separation; clarified Valuation and Recommendation as calculated/explainable outputs |
+
+## Relationship with the Domain Model
+
+The Wealth Model defines the conceptual business model of the platform.
+
+Concrete responsibilities, aggregate boundaries and implementation rules are defined in the Logical Domain Model.
+
+If differences arise, the Logical Domain Model refines this conceptual model without changing its business meaning.
