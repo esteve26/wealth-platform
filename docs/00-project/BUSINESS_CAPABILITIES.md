@@ -1,390 +1,155 @@
 # BUSINESS_CAPABILITIES
 
-Document ID: DOM-CAP-001  
-Version: 0.1  
-Status: Accepted  
-Owner: Product & Architecture
-
-## Depends On
-
-- PROJECT_CONSTITUTION.md
-- PROJECT_PHILOSOPHY.md
-- PRODUCT_PRINCIPLES.md
-- PRODUCT_VISION.md
-- UBIQUITOUS_LANGUAGE.md
-
-## Required By
-
-- DOMAIN_MODEL.md
-- DOMAIN_ONTOLOGY.md
-- BOUNDED_CONTEXTS.md
-- ARCHITECTURE_OVERVIEW.md
-- MODULE_DEFINITION.md
+**Document ID:** PROJ-CAP-001
+**Version:** 1.0
+**Status:** Accepted
+**Owner:** Product & Architecture
 
 ---
 
-# 1. Purpose
+# Purpose
 
 This document defines the business capabilities of the Wealth Platform.
 
-A business capability represents **what the platform must be able to do**, independently of how it is implemented.
-
-Business capabilities are stable over time and constitute the foundation for the domain model, software architecture and product roadmap.
+A business capability represents a stable area of business responsibility.
+Capabilities are technology-independent and form the basis for architecture,
+implementation and future service boundaries.
 
 ---
 
-# 2. Capability Hierarchy
+# Capability Classification
+
+## Core Domain
+
+These capabilities define the unique value of the Wealth Platform.
+
+| Capability | Responsibility |
+|------------|----------------|
+| Financial Planning | Defines Financial Plans, Purpose, Goals, Strategies, Milestones and planning context. |
+| Portfolio Management | Organizes Positions into investment Portfolios that execute Financial Plans. |
+| Transaction Management | Records immutable financial events that create or modify Positions. |
+| Asset Management | Manages canonical Assets, Asset Classes and reference data. |
+
+---
+
+## Supporting Domain
+
+These capabilities enable the Core Domain.
+
+| Capability | Responsibility |
+|------------|----------------|
+| Financial Engine | Produces deterministic valuations, performance, allocations and Progress. |
+| Provider Integration | Synchronizes data from banks, brokers, exchanges and other providers. |
+| Financial Intelligence | Generates explainable insights and recommendations from Financial Engine outputs. |
+| Dashboard & Reporting | Presents wealth, planning and portfolio information. |
+| AI Assistant | Explains data, answers questions and assists users without generating financial truth. |
+
+---
+
+## Generic Domain
+
+These capabilities support the platform but are not wealth-specific.
+
+| Capability | Responsibility |
+|------------|----------------|
+| Identity & Access | Authentication, authorization and permissions. |
+| Workspace Management | Multi-tenant workspaces and ownership boundaries. |
+| Organization Management | Organizations, advisors and client relationships. |
+| Administration | Operational administration and platform management. |
+| Configuration | User, workspace and platform configuration. |
+| Notification | User notifications and alerts. |
+| Audit & Compliance | Audit trail and compliance support. |
+
+---
+
+# Capability Relationships
 
 ```text
-Wealth Platform
+Financial Planning
+        │
+        ├── uses Portfolio Management
+        ├── consumes Financial Engine
+        ├── consumes Financial Intelligence
+        ├── exposed through Dashboard
+        └── explained by AI Assistant
 
-├── Workspace Management
-├── Identity & Access Management
-├── Portfolio Management
-├── Asset Management
-├── Transaction Management
-├── Provider Integration
-├── Financial Intelligence
-├── Goal & Strategy Management
-├── Tax Management
-├── Dashboard & Reporting
-├── Artificial Intelligence
-├── Organization Management
-├── Platform Administration
-└── Platform Configuration
+Portfolio Management
+        │
+        ├── uses Transaction Management
+        └── references Asset Management
+
+Transaction Management
+        │
+        └── creates and modifies Positions
+
+Provider Integration
+        │
+        └── imports external evidence into the platform
+
+Financial Engine
+        │
+        └── calculates deterministic financial truth
 ```
 
 ---
 
-# 3. Capability Catalogue
+# Capability Ownership
 
-## 3.1 Workspace Management
-
-### Purpose
-
-Manage the business boundary where users, portfolios, providers and settings coexist.
-
-### Responsibilities
-
-- Create workspaces
-- Configure workspace settings
-- Multi-tenant isolation
-- Workspace preferences
-- Default currency
-- Default language
-- Default country
-
----
-
-## 3.2 Identity & Access Management
-
-### Purpose
-
-Control authentication, authorization and permissions.
-
-### Responsibilities
-
-- Authentication
-- MFA
-- Roles
-- Permissions
-- Invitations
-- User assignment
-- Session management
-- Audit of sensitive actions
+| Business Concept | Owning Capability |
+|------------------|-------------------|
+| Financial Plan | Financial Planning |
+| Purpose | Financial Planning |
+| Goal | Financial Planning |
+| Strategy | Financial Planning |
+| Milestone | Financial Planning |
+| Progress | Financial Engine (calculation), Financial Planning (presentation) |
+| Portfolio | Portfolio Management |
+| Position | Transaction Management |
+| Holding | Asset Management (derived business view) |
+| Asset | Asset Management |
+| Asset Class | Asset Management |
+| Transaction | Transaction Management |
+| Provider | Provider Integration |
+| Container | Provider Integration / Workspace Management |
 
 ---
 
-## 3.3 Portfolio Management
+# Architectural Principles
 
-### Purpose
-
-Manage investment portfolios and their lifecycle.
-
-### Responsibilities
-
-- Create portfolios
-- Archive portfolios
-- Portfolio objectives
-- Portfolio strategies
-- Portfolio composition
-- Portfolio performance
-- Portfolio allocation
-- Portfolio comparison
-- Portfolio history
+- Every business concept has a single owning capability.
+- Capabilities own business behaviour, not necessarily every piece of data related to that behaviour.
+- Read-only access to concepts owned by another capability is allowed through well-defined business interfaces.
+- Capabilities collaborate through business concepts, not database ownership.
+- Financial Planning is the primary planning capability.
+- Portfolio Management executes planning intent.
+- Transactions are immutable.
+- Financial Engine is the only source of deterministic financial truth.
+- AI never replaces deterministic calculations.
 
 ---
 
-## 3.4 Asset Management
+# Future Capabilities
 
-### Purpose
-
-Manage every supported asset class.
-
-### Responsibilities
-
-- Asset catalogue
-- Asset classification
-- Holdings
-- Positions
-- Asset valuation
-- Historical prices
-- Asset metadata
-- Multi-currency support
-
-Supported asset classes include:
-
-- Cash
-- Stocks
-- ETFs
-- Bonds
-- Crypto
-- Precious Metals
-- Commodities
-- Real Estate
-- Private Equity
-- Crowdlending
-- Art & Collectibles
-- Other tangible assets
-
----
-
-## 3.5 Transaction Management
-
-### Purpose
-
-Maintain the immutable financial history.
-
-### Responsibilities
-
-- Buy
-- Sell
-- Deposit
-- Withdrawal
-- Dividend
-- Interest
-- Fees
-- Transfers
-- Salary
-- Manual transactions
-- Imported transactions
-
----
-
-## 3.6 Provider Integration
-
-### Purpose
-
-Synchronize external financial providers.
-
-### Responsibilities
-
-- Connector lifecycle
-- API integrations
-- PSD2 integrations
-- CSV imports
-- Wallet synchronization
-- Incremental synchronization
-- Synchronization monitoring
-- Error recovery
-
----
-
-## 3.7 Financial Intelligence
-
-### Purpose
-
-Transform financial data into actionable information.
-
-### Responsibilities
-
-- Wealth calculation
-- Profit & loss
-- Performance analysis
-- Asset allocation
-- Portfolio allocation
-- Risk analysis
-- Historical evolution
-- Forecast support
-- Recommendation generation
-- Explainability
-
----
-
-## 3.8 Goal & Strategy Management
-
-### Purpose
-
-Help users achieve financial objectives.
-
-### Responsibilities
-
-- Goal definition
-- Strategy definition
-- Progress tracking
-- Goal monitoring
-- Goal notifications
-
----
-
-## 3.9 Tax Management
-
-### Purpose
-
-Estimate tax impact.
-
-### Responsibilities
-
-- Country tax profiles
-- Capital gains estimation
-- Tax reports
-- Fiscal configuration
-
----
-
-## 3.10 Dashboard & Reporting
-
-### Purpose
-
-Provide configurable business insights.
-
-### Responsibilities
-
-- Dashboards
-- Widgets
-- Saved layouts
-- CSV exports
-- Custom metrics
-- Historical visualizations
-
----
-
-## 3.11 Artificial Intelligence
-
-### Purpose
-
-Explain and assist, never replace deterministic calculations.
-
-### Responsibilities
-
-- Explain recommendations
-- Explain charts
-- Explain indicators
-- Natural language queries
-- Dashboard assistance
-- Financial education
-
-Out of scope:
-
-- Autonomous investment decisions
-- Unexplained buy/sell advice
-
----
-
-## 3.12 Organization Management
-
-### Purpose
-
-Support professional wealth managers.
-
-### Responsibilities
-
-- Organizations
-- Client management
-- Advisor assignment
-- Delegated access
-- Client permissions
-
----
-
-## 3.13 Platform Administration
-
-### Purpose
-
-Operate the platform securely.
-
-### Responsibilities
-
-- User administration
-- Provider administration
-- Monitoring
-- Audit
-- Feature flags
-- Subscription plans
-
----
-
-## 3.14 Platform Configuration
-
-### Purpose
-
-Configure platform-wide behavior.
-
-### Responsibilities
-
-- Languages
-- Countries
-- Supported currencies
-- Asset categories
-- Tax engines
-- Notification preferences
-
----
-
-# 4. Capability Prioritization
-
-## MVP
-
-Critical capabilities:
-
-- Workspace Management
-- Portfolio Management
-- Asset Management
-- Transaction Management
-- Provider Integration
-- Financial Intelligence
-
-## Phase 2
-
-- Goal & Strategy Management
-- Dashboard & Reporting
-- Organization Management
-
-## Phase 3
+Planned capabilities include:
 
 - Tax Management
-- Artificial Intelligence
-- Advanced Administration
+- Knowledge Engine
+- Automation & Workflow
+- Document Management
+- Client Collaboration
 
 ---
 
-# 5. Architectural Principles
+# Capability Evolution
 
-Each capability should:
-
-- expose a clear business API;
-- own its business rules;
-- minimize coupling with other capabilities;
-- evolve independently whenever possible.
+The capabilities defined in this document represent the stable business architecture of the Wealth Platform.
+Future versions may introduce additional capabilities, but existing responsibilities should only change when a fundamental business decision requires it.
+The objective is to maximize long-term architectural stability.
 
 ---
 
-# 6. Traceability
-
-| Capability | Primary Domain Documents |
-|------------|--------------------------|
-| Workspace Management | DOMAIN_MODEL, PERMISSION_MODEL |
-| Portfolio Management | DOMAIN_MODEL, BUSINESS_RULES |
-| Asset Management | DOMAIN_MODEL, DATA_MODEL |
-| Provider Integration | CONNECTOR_ARCHITECTURE |
-| Financial Intelligence | FINANCIAL_ENGINE |
-| AI | AI_ARCHITECTURE |
-| Tax Management | TAX_ENGINE |
-
----
-
-# 7. Change Log
+# Change Log
 
 | Version | Description |
 |---------|-------------|
-| 0.1 | Initial definition of business capabilities |
+| 1.0 | Refactored capability map to align with Financial Planning as the primary planning capability and the Wealth Model v1.0. |

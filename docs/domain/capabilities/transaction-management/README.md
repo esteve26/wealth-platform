@@ -142,20 +142,20 @@ Manual transactions are allowed, but must remain distinguishable from imported t
 
 The platform must support at least the following Transaction Types.
 
-| Type | Description |
-|------|-------------|
-| Buy | Acquisition of an Asset. |
-| Sell | Disposal of an Asset. |
-| Deposit | Inflow of Cash or Asset into a Container. |
-| Withdrawal | Outflow of Cash or Asset from a Container. |
-| Transfer | Movement between Containers. |
-| Dividend | Income distribution from an Asset. |
-| Interest | Interest income. |
-| Salary | Employment income deposited into a Container. |
-| Fee | Commission, custody fee, trading fee or network fee. |
-| Tax Payment | Tax-related outflow. |
-| Reward | Staking, lending or promotional reward. |
-| Adjustment | Correcting transaction used to fix errors. |
+| Type        | Description                                          |
+| ----------- | ---------------------------------------------------- |
+| Buy         | Acquisition of an Asset.                             |
+| Sell        | Disposal of an Asset.                                |
+| Deposit     | Inflow of Cash or Asset into a Container.            |
+| Withdrawal  | Outflow of Cash or Asset from a Container.           |
+| Transfer    | Movement between Containers.                         |
+| Dividend    | Income distribution from an Asset.                   |
+| Interest    | Interest income.                                     |
+| Salary      | Employment income deposited into a Container.        |
+| Fee         | Commission, custody fee, trading fee or network fee. |
+| Tax Payment | Tax-related outflow.                                 |
+| Reward      | Staking, lending or promotional reward.              |
+| Adjustment  | Correcting transaction used to fix errors.           |
 
 Future Transaction Types may be added without changing the core model.
 
@@ -205,13 +205,13 @@ Every Transaction must have a Source.
 
 Supported sources:
 
-| Source | Description |
-|--------|-------------|
-| Provider Import | Imported from bank, broker, exchange or external platform. |
-| CSV Import | Imported from user-provided file. |
-| Manual Entry | Entered manually by the user. |
+| Source            | Description                                                    |
+| ----------------- | -------------------------------------------------------------- |
+| Provider Import   | Imported from bank, broker, exchange or external platform.     |
+| CSV Import        | Imported from user-provided file.                              |
+| Manual Entry      | Entered manually by the user.                                  |
 | System Adjustment | Created by the system to correct or reconcile inconsistencies. |
-| Migration | Created during data migration. |
+| Migration         | Created during data migration.                                 |
 
 Imported Transactions should preserve raw provider references whenever possible.
 
@@ -416,14 +416,14 @@ Secondary actors:
 
 # 15. Permissions
 
-| Action | Owner | Advisor | Viewer | System |
-|--------|:-----:|:-------:|:------:|:------:|
-| View Transaction | ✅ | ✅ | ✅ | ✅ |
-| Create Manual Transaction | ✅ | ✅* | ❌ | ❌ |
-| Import Transaction | ✅ | ✅* | ❌ | ✅ |
-| Correct Transaction | ✅ | ✅* | ❌ | ✅ |
-| Delete Transaction | ❌ | ❌ | ❌ | ❌ |
-| View Raw Provider Data | ✅ | ✅* | ❌ | ✅ |
+| Action                    | Owner | Advisor | Viewer | System |
+| ------------------------- | :---: | :-----: | :----: | :----: |
+| View Transaction          |   ✅   |    ✅    |   ✅    |   ✅    |
+| Create Manual Transaction |   ✅   |   ✅*    |   ❌    |   ❌    |
+| Import Transaction        |   ✅   |   ✅*    |   ❌    |   ✅    |
+| Correct Transaction       |   ✅   |   ✅*    |   ❌    |   ✅    |
+| Delete Transaction        |   ❌   |    ❌    |   ❌    |   ❌    |
+| View Raw Provider Data    |   ✅   |   ✅*    |   ❌    |   ✅    |
 
 \* Subject to delegated permissions.
 
@@ -486,12 +486,12 @@ The capability is considered complete when:
 
 # 19. Open Questions
 
-| ID | Question |
-|----|----------|
-| OQ-001 | Should manual draft transactions be editable before posting? |
-| OQ-002 | Should imported Transactions require user confirmation before posting? |
-| OQ-003 | How should complex corporate actions be represented? |
-| OQ-004 | Should crypto swaps be modeled as sell+buy or as a dedicated transaction type? |
+| ID     | Question                                                                                |
+| ------ | --------------------------------------------------------------------------------------- |
+| OQ-001 | Should manual draft transactions be editable before posting?                            |
+| OQ-002 | Should imported Transactions require user confirmation before posting?                  |
+| OQ-003 | How should complex corporate actions be represented?                                    |
+| OQ-004 | Should crypto swaps be modeled as sell+buy or as a dedicated transaction type?          |
 | OQ-005 | Should transfers between wallets always require matching source and destination events? |
 
 ---
@@ -516,6 +516,6 @@ Future versions may include:
 
 # 21. Change Log
 
-| Version | Description |
-|---------|-------------|
-| 0.1 | Initial Transaction Management capability specification |
+| Version | Description                                             |
+| ------- | ------------------------------------------------------- |
+| 0.1     | Initial Transaction Management capability specification |

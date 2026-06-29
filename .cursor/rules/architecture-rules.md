@@ -45,3 +45,6 @@ Separate clearly:
 - Implementation details
 
 Do not place database schema decisions inside business capability documents.
+
+## Dependencies
+A capability specification may only declare dependencies on accepted or explicitly planned capabilities. Future ideas must be documented under Future Evolution, not under Dependencies.
