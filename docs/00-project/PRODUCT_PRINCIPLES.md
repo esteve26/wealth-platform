@@ -1,7 +1,7 @@
 # PRODUCT_PRINCIPLES
 
 Document ID: PROD-PRINC-001
-Version: 0.1
+Version: 1.0
 Status: Accepted
 Owner: Product & Architecture
 Depends On:

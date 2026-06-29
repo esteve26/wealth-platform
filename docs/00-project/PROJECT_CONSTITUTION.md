@@ -1,14 +1,14 @@
 # PROJECT_CONSTITUTION
 
 Document ID: PRJ-CONST-001
-Version: 0.1
+Version: 1.0
 Status: Accepted
 
 # Purpose
 
 This document defines the non-negotiable principles of the Wealth Platform.
 
-Every product decision, architectural decision, implementation and AI-generated contribution must comply with this constitution.
+Every business, product, architectural and implementation decision, including AI-generated contributions, must comply with this Constitution.
 
 # Product Mission
 
@@ -16,6 +16,21 @@ Help people understand, manage and plan their wealth by transforming fragmented 
 
 The platform supports decisions.
 The user always makes the final decision.
+
+# Scope
+
+This Constitution applies to:
+
+- product decisions;
+- business requirements;
+- domain modeling;
+- software architecture;
+- implementation;
+- testing;
+- AI-assisted development;
+- future project documentation.
+
+If any document conflicts with this Constitution, the Constitution always prevails.
 
 # Constitutional Principles
 

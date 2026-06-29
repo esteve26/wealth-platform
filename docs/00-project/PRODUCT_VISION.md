@@ -2,7 +2,7 @@
 # PRODUCT_VISION
 
 Document ID: PROD-VISION-001
-Version: 0.2
+Version: 1.0
 Status: Accepted
 Owner: Product & Architecture
 

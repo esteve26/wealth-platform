@@ -61,19 +61,20 @@ Each directory represents a progressively more detailed level of specification.
 
 # 4. Project Phases
 
-| Phase             | Goal                                             | Status      |
-| ----------------- | ------------------------------------------------ | ----------- |
-| Foundation        | Define product identity and governance           | ✅ Completed |
-| Conceptual Domain | Define the business domain and core capabilities | ✅ Completed |
-| Logical Domain    | Define logical domain models and relationships   | Planned     |
-| Requirements      | Define functional behaviour                      | Planned     |
-| Architecture      | Design the software architecture                 | Planned     |
-| Data              | Define the persistence model                     | Planned     |
-| AI                | Define AI capabilities                           | Planned     |
-| UX                | Define user experience                           | Planned     |
-| Security          | Define security architecture                     | Planned     |
-| Testing           | Validate quality                                 | Planned     |
-| Delivery          | Deploy and operate                               | Planned     |
+| Phase                     | Goal                       | Status          |
+| ------------------------- | -------------------------- | --------------- |
+| Foundation                | Project governance         | **Completed**   |
+| Business Domain           | Business concepts          | **Completed**   |
+| Functional Specifications | Business capabilities      | **Completed**   |
+| Logical Domain Model      | Business aggregates        | **In Progress** |
+| Application Architecture  | Implementable architecture | **In Progress** |
+| Technical Architecture    | Technology design          | Planned         |
+| Data Architecture         | Persistence model          | Planned         |
+| API Architecture          | External interfaces        | Planned         |
+| AI Architecture           | AI capabilities            | Planned         |
+| Security                  | Platform security          | Planned         |
+| Testing                   | Quality assurance          | Planned         |
+| Operations                | Deployment & Operations    | Planned         |
 
 ---
 
@@ -139,7 +140,9 @@ Logical Domain Design.
 
 # 9. Future Deliverables
 
-The repository is expected to contain more than 100 documents covering:
+The repository is expected to contain a complete implementation specification covering business, architecture, data, APIs, AI, security, testing and operations.
+
+The documentation is intended to be sufficient for AI-assisted software implementation with minimal architectural assumptions.
 
 * Business Domain
 * Requirements
@@ -164,7 +167,22 @@ Changes to project phases, documentation strategy or governance must be reflecte
 
 ---
 
-# 11. Change Log
+# 11. Documentation Maturity
+
+The documentation evolves through the following maturity levels:
+
+- Foundation
+- Business Definition
+- Logical Design
+- Application Architecture
+- Technical Architecture
+- Implementation Ready
+
+Each phase builds upon the previous one and may only reference Accepted documents.
+
+---
+
+# 12. Change Log
 
 | Version | Date            | Description                                                                                                                                              |
 | ------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |

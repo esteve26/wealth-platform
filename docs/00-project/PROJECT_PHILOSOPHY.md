@@ -1,7 +1,7 @@
 # PROJECT_PHILOSOPHY
 
 Document ID: PRJ-PHIL-001
-Version: 0.1
+Version: 1.0
 Status: Accepted
 Owner: Product & Architecture
 Depends On:
