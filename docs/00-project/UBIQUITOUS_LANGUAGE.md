@@ -57,20 +57,20 @@ Changes to this document require reviewing all affected domain specifications.
 | Strategy | The rules that describe how a Financial Plan intends to achieve its Goals (for example, target return, risk tolerance, asset allocation limits or time horizon). |
 | Milestone | A checkpoint within a Financial Plan that marks expected progress toward one or more Goals at a specific point in time. |
 | Progress | The measured advancement of a Financial Plan toward its Goals, based on deterministic calculations produced by the Financial Engine. |
-| Portfolio | A logical investment grouping of Positions that supports one or more Financial Plans. A Portfolio is not a bank account, broker account, exchange account or provider account. |
-| Position | The atomic unit of owned wealth. A Position represents a quantity of one Asset located in one Container and belonging to one Workspace. |
+| Portfolio | A logical grouping of Positions representing an investment strategy or objective. A Portfolio never performs financial calculations. |
+| Position | The current persistent ownership state of an Asset inside a Container. A Position is deterministically derived from the immutable Transaction history by the Financial Engine. Users never modify Positions directly. |
 | Holding | An aggregation of Positions for the same Asset. A Holding is a derived business view, not the atomic ownership unit. |
-| Asset | A universal financial or non-financial item with measurable economic value (cash, ETF, stock, crypto, property, gold, artwork, private equity, crowdlending, etc.). Assets are canonical master data and are not owned directly by users. |
+| Asset | A financial or non-financial instrument that exists independently of any Workspace or user. An Asset becomes part of a user's wealth only through a Position. |
 | Asset Class | A category grouping similar assets (Equity, Crypto, Real Estate, Precious Metals, Cash, Private Equity...). |
 | Provider | An external institution or platform such as a bank, broker, exchange or crowdlending platform. A Provider is never the owner of user wealth. |
-| Container | The location where Positions exist (bank account, brokerage account, exchange account, wallet, vault, property, safe deposit box...). |
+| Container | The custody location where wealth is held. Examples include bank accounts, brokerage accounts, crypto wallets, real estate properties and other custody locations. Every Position exists inside exactly one Container. |
 | Transaction | An immutable financial event that modifies one or more Positions. |
 | Connector | Software component that synchronizes data with a provider. |
 | Synchronization | The process of importing or refreshing external information. |
 | Recommendation | An explainable suggestion generated from deterministic financial analysis. |
 | Dashboard | A configurable view composed of widgets. |
 | Widget | A reusable visualization component displayed on a dashboard. |
-| Financial Engine | The deterministic engine responsible for all financial calculations. |
+| Financial Engine | The domain component responsible for every deterministic financial calculation performed by the platform. It produces Position snapshots, portfolio metrics and planning projections from immutable business events. |
 | AI Assistant | The component that explains information and assists the user. It never replaces the Financial Engine. |
 
 A **Financial Plan** contains:
